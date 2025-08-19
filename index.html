@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cricket Scoreboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="title">
+        <h1>Cricket Scoreboard</h1>
+        <p class="subtitle" aria-label="assignment info">
+          Assignment: Cricket Scoreboard Web Application • Course: Web Development • Date: August 19, 2025
+        </p>
+      </div>
+      <div id="freeHitBadge" class="badge hidden" aria-live="polite">FREE HIT</div>
+    </header>
+
+    <main class="container">
+      <section class="scoreboard" aria-label="Team Score">
+        <div class="scoreline">
+          <span id="teamScore" class="runs">0</span>
+          <span class="slash">/</span>
+          <span id="wickets" class="wickets">0</span>
+        </div>
+        <div class="overs">
+          Overs: <span id="overs">0.0</span>
+        </div>
+      </section>
+
+      <section class="players" aria-label="Batters">
+        <div class="player" id="rahulRow">
+          <div class="name">
+            <span id="rahulStriker" class="striker-indicator" aria-hidden="true">★</span>
+            <span id="rahulName">Rahul</span>
+          </div>
+          <div class="stats">
+            <span id="rahulRuns">0</span> (<span id="rahulBalls">0</span>) • SR <span id="rahulSR">0.0</span>
+          </div>
+        </div>
+        <div class="player" id="rohitRow">
+          <div class="name">
+            <span id="rohitStriker" class="striker-indicator hidden" aria-hidden="true">★</span>
+            <span id="rohitName">Rohit</span>
+          </div>
+          <div class="stats">
+            <span id="rohitRuns">0</span> (<span id="rohitBalls">0</span>) • SR <span id="rohitSR">0.0</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Controls">
+        <div class="group">
+          <h2>Runs</h2>
+          <div class="btn-row">
+            <button data-action="run" data-value="1">1</button>
+            <button data-action="run" data-value="2">2</button>
+            <button data-action="run" data-value="3">3</button>
+            <button data-action="run" data-value="4">4</button>
+            <button data-action="run" data-value="6">6</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Events</h2>
+          <div class="btn-row">
+            <button data-action="wicket">Wicket</button>
+            <button data-action="lbw">LBW</button>
+          </div>
+        </div>
+
+        <div class="group">
+          <h2>Extras</h2>
+          <div class="btn-row">
+            <button data-action="wide">Wide</button>
+            <button data-action="bye">Bye</button>
+            <button data-action="legbye">Leg Bye</button>
+            <button data-action="noball">No Ball</button>
+            <button data-action="freehit">Free Hit</button>
+          </div>
+        </div>
+
+        <div class="group utility">
+          <div class="btn-row">
+            <button data-action="switch">Switch Striker</button>
+            <button data-action="reset" class="danger">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="status" aria-live="polite">
+        <span id="statusMsg">Ready.</span>
+      </section>
+    </main>
+
+    <!-- Animated event feed overlay -->
+    <div id="eventFeed" class="event-feed" aria-live="polite" aria-atomic="false"></div>
+
+    <footer class="app-footer">
+      <small>Tip: Free Hit means the next ball can't be out and won't increment balls if wicket/LBW is pressed.</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
